@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mas información</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+
+<style>
+
+    @import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Passion+One:wght@400;700;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+    
+    /* Estilo del encabezado */
+    header {
+        background-color: rgb(35, 2, 35);
+        padding: 20px 0;
+        text-align: center;
+    }
+    /* Estilo del encabezado h5 */
+    header h5 {
+        margin: 0;
+        color: #fff;
+        padding-bottom: 20px;
+        font-family: "Passion One", sans-serif;
+        font-size: 25px;
+    }
+    /* Estilo de los enlaces en el encabezado */
+    header a {
+        color: #ffffff;
+        text-align: center;
+        margin-left: 30px;
+        text-decoration: none;
+        font-size: 18px;
+        font-family: "League Spartan", sans-serif;
+    }
+    /* Estilo de los enlaces en el encabezado al pasar el mouse */
+    header a:hover {
+        color: #4c6ca8; /* Cambia el color al pasar el mouse */
+    }
+    /* Media query para pantallas pequeñas */
+    @media only screen and (max-width: 600px) {
+        header h5 {
+            font-size: 24px;
+        }
+    }
+    /* Estilo de la barra de navegación */
+    .navbar {
+        margin-top: -18px; /* Ajusta este valor según sea necesario */
+        background-color: rgb(68, 8, 65);
+    }
+    /* Estilo del formulario dentro de la barra de navegación */
+    .navbar form {
+        width: 60%;
+        margin: auto    ;
+    }
+    /* Estilo del menú de categorías */
+    #navbarcategorias {
+        margin-top: 0;
+        background-color:#ffffff;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);  /*Esto agrega una sombra al elemento con un desplazamiento horizontal de 0px, un desplazamiento vertical de 0px, un desenfoque de 5px y un color de sombra RGBA (0, 0, 0, 0.5), 
+        lo que significa que la sombra será negra con una opacidad del 50%.*/
+        color: #000;
+        font-family: "Passion One", sans-serif;
+        font-size: 22px;
+    }
+    /* Estilo del logotipo */
+    #logo {
+        color: aliceblue;
+        font-family: "Bungee", sans-serif;
+        font-size: 35px;
+        margin-left: 40px;
+        margin-right: 50px;
+    }
+    /* Estilo del enlace de sesión */
+    #sesion {
+        color: aliceblue;
+        margin-left: 20px   ;
+    }
+    /* Estilo del enlace de sesión al pasar el mouse */
+    #sesion:hover {
+        color: #5c4068; 
+    }
+    
+    /* Estilo del botón de búsqueda */
+    #btnsearch {
+        border-radius: 40px;
+        border: #e90404;
+        color: #000;
+    }
+    /* Estilo de la sección de compras */
+    #compras{
+        text-align: center;
+        margin-top: 150px;
+    }
+    
+    /* Estilo del título de la sección de compras */
+    #compras h1 {
+        font-family: "Passion One", sans-serif;
+        font-size: 6rem;
+    }
+    /* Estilo del subtítulo de la sección de compras */
+    #compras h5 {
+        font-family: "League Spartan", sans-serif;
+        font-size: 2rem;
+    }
+    /* Estilo del texto de la sección de compras */
+    #compras p {
+        font-family: "League Spartan", sans-serif;
+        font-size: 18px;
+    }
+    
+    /* Estilo de la lista de la sección de compras */
+    #compras ul {
+        list-style: none; /* Elimina los puntos de la lista */
+        margin: 0; /* Elimina el margen entre los elementos de la lista */
+    }
+    /* Estilo del contenedor de acordeón */
+    .accordion-container {
+        border: 2px solid #ccc;
+        border-radius: 8px; 
+        overflow: hidden; /* Esto oculta cualquier contenido que se desborde del contenedor, es decir, no se mostrará si excede los límites del contenedor.*/
+        width: 100%;
+    }
+    /* Estilo de la fila */
+    .row {
+        margin-left: -100px;
+    }
+    /* Estilo del contenedor de iconos */
+    .icons-container  {
+        position: absolute; /*Esto hace que ignore su posición normal en el flujo de la página y que se posicione según las coordenadas establecidas*/
+        top: 2%; /* Centra verticalmente los iconos */
+        right: 250px; /* Ajusta la distancia desde el borde derecho */
+    }
+    /* Estilo de los enlaces dentro del contenedor de iconos */
+    .icons-container a {
+        text-decoration: none;
+        margin: 5px;
+        display: inline-block; /*se está permitiendo que ese elemento tenga tanto propiedades de bloque como de línea*/
+        color: #fdfcfc;
+    }
+    /* Estilo de los enlaces dentro del contenedor de iconos al pasar el mouse */
+    .icons-container a:hover {
+        color: #5c4068;
+    }
+    /* Estilo de las imágenes dentro del contenedor de iconos */
+    .icons-container img {
+        margin-right: 12px; /* Ajusta la separación entre los iconos */
+    }
+    /* Estilo del pie de página */
+    footer {
+        position: relative;  /*Esto mantiene el elemento en su posición normal en el flujo del documento, pero permite ajustar su posición utilizando las propiedades top, bottom, left y right.*/
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgb(68, 8, 65);
+        color: azure;
+        text-align: center;
+        padding-bottom: 2px;
+        padding-top: 10px;
+        font-size: 12px;
+    }
+    /* Estilo del cuerpo */
+    body {
+        background-color: #fdfcfc;
+    }
+</style>
+
+</head>
+<body>
+<!--Este es el header de nuestra pagina web-->
+    <section class="container-mt-4">
+        <header>
+            <h5>Bienvenidos a nuestra pagina ¿Quieres saber quienes somos?</h5>
+            <a href="QuienesSomos.html">Presiona aquí para conocernos</a> 
+            <a href="QuienesSomos.html">Sección de ayuda</a>  
+            <a href="informacion.html">Más de información</a>
+        </header>
+    </section>
+
+    <!--Navbar de la pagina web-->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a id="logo" class="navbar-brand" href="index.html  ">Pet Amigos</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="¿Qué productos estés buscando?" aria-label="Search">
+                    <button id="btnsearch" class="btn btn-outline-dark" type="submit">
+                        <img src="img/search.svg" alt="buscar">
+                    </button>
+                </form>
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a id="sesion" class="nav-link active" aria-current="page" href="inicioDeSesion.html">Iniciar Sesión</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="favoritos.html">
+                            <img src="img/heart.svg" alt="favoritos">
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="carrito.html">
+                            <img src="img/shopping-cart.svg" alt="compras">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--Navbar de las categorias-->
+    <nav id="navbarcategorias" class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"></a>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Categorías</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Perrunos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Gatunos</a>
+                    </li>
+                </ul>
+                <span class="navbar-text">
+                    🔥 ¡OBTÉN 10% DCTO!
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <!--Contenedor para texto info de compras-->
+    <div id="compras">
+        <ul>
+            <li><h5>Compras Online</h5></li>
+            <li><h1>Despacho y retiro en tienda</h1></li>
+            <li><p>Infórmate sobre los tiempos y condiciones de despacho y retiro en nuestras sucursales.</p></li>
+        </ul>
+    </div>
+
+
+<!--Cards para info de despachos y retiros-->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Despacho a domicilio</h2>
+                <p>Aplica para días hábiles, no considera feriados ni fines de semana</p>
+            <div class="accordion-container">
+                <div class="accordion accordion-flush" id="accordionFlushExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            📦¿Cuándo llega mi pedido para RM? 
+                        </button>
+                        </h2>
+                        <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">👉48 a 72 hrs HÁBILES para REGIÓN METROPOLITANA (no considera feriados ni fines de semana).</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                            📦¿Cuando llega mi pedido a Regiones?
+                        </button>
+                        </h2>
+                        <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body"> 👉<b>60 hrs HÁBILES en las comunas de:</b>
+                            <br>
+                            Concón, Copiapó, Chillán, Chillán Viejo, Concepción, Coquimbo, Coronel, Corral, Curicó, El Quisco, Hualpén, Illapel, Lanco, La Calera, La Ligua, La Serena, Limache, Linares, Los Ángeles, Los Andes, Los Vilos, Machalí, Olmué, Osorno, 
+                            Ovalle, Padre las Casas, Puerto Montt, Pucón, Quillota, Quilpué, Rancagua, San Antonio, San Carlos, San Fernando, San Felipe, San Pedro de la Paz, Santa Cruz, Talca, Talcahuano, Temuco, Valparaíso, Viña del Mar, Valdivia, Vallenar, Villarrica, Villa Alemana.
+                            <br>
+                            <br>
+                            
+                            👉<b>6 días HÁBILES en las comunas de:</b> 
+                            <br>
+                            Arica.
+                            
+                            <br>
+                            <br>
+                            
+                            👉<b>7 días HÁBILES en las comunas de:</b>
+                            <br>
+                            Aysén, Chaitén, Chile Chico, Cisnes, Futaleufú, Guaitecas.
+                        </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                            🎁¿Como consigo Despacho Gratis?
+                        </button>
+                        </h2>
+                        <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">Llega en 48 a 72 hrs HÁBILES, por compras superiores a $25.000. Válido para las comunas de Región Metropolitana.</div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <br>
+                <p> Considerar que las entregas se realizan en días hábiles en horario de 9:00 a 22:00 hrs.</p>
+            </div>
+            
+            <div class="col-md-6">
+                <h2>Retiro en tienda</h2>
+                <h4>Tu compra estará lista para retirar en:</h4>
+                <br>
+                <p>24 a 48 hrs hábiles (Se notificará una vez que esté listo el pedido para retiro)
+                </p>
+                <br>
+                <p>Retira tu pedido en nuestras sucursales, recuerda presentar tu CÉDULA DE IDENTIDAD al retirar.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Pie de pagina del sitio web-->
+<footer>
+    <p>
+        ©2024 PET AMIGOS®
+        Somos la Tienda de tus Incondicionales.
+    </p>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+</body>
+</html>
