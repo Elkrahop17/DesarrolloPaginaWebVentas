@@ -76,6 +76,22 @@
         color: #ffffff;
         background-color: #44433f; /* Color café más oscuro al pasar el ratón */
     }
+
+    .btn-register {
+        background-color: #007bff; 
+        border-color: #007bff; 
+        color: #ffffff; 
+        margin-top: 10px; /* Ajuste el margen superior según sea necesario */
+        width: 100%;
+    }
+    
+    /* Estilo del botón de registro al pasar el mouse */
+    .btn-register:hover {
+        background-color: #0056b3; /* Color azul más oscuro al pasar el ratón */
+        border-color: #0056b3; /* Color del borde al pasar el ratón */
+        color: #ffffff; /* Color del texto al pasar el ratón */
+    }
+
     /* Estilo de elementos con clases mb-3 y form-text */
     .mb-3, .form-text {
         color: #ffffff;
@@ -146,7 +162,9 @@
                     Ingresar
                 </button>
 
-                <a href="registro.html">Registro</a>
+                <a href="registro.html" class="btn btn-secondary btn-register">Registrarse</a>
+
+
 
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
