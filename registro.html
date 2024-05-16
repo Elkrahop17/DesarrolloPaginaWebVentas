@@ -11,17 +11,22 @@
     }
 
     .form-container {
-        background-color: #fff;
-        border-radius: 10px;
+        background-color: rgba(255, 255, 255, 0.95); /* Fondo blanco transparente */
+        border-radius: 15px;
         padding: 30px;
-        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
         margin-top: 50px;
+        transition: box-shadow 0.4s;
+    }
+
+    .form-container:hover {
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15), 0 8px 10px rgba(0, 0, 0, 0.1); /* Incremento de la sombra al pasar el cursor */
     }
 
     .form-container h2 {
         text-align: center;
         margin-bottom: 30px;
-        color: #343a40;
+        color: #070707; 
     }
 
     .form-control {
@@ -52,7 +57,10 @@
 </style>
 </head>
 <body>
+<!--Alerta para registro-->    
 <div id="liveAlertPlaceholder"></div>
+
+<!--Contenedor para registro-->
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6">
@@ -90,7 +98,7 @@
     </div>
 </div>
 
-
+<!--Verificacion de campos para registrarse-->
 <script>
 
     const alertPlaceholder = document.getElementById('liveAlertPlaceholder');
