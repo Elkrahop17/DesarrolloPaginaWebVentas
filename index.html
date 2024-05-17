@@ -58,6 +58,7 @@
         width: 60%; /*establece el ancho del formulario al 60% del ancho de su contenedor.*/
         margin: auto; /*aplica márgenes automáticos al formulario*/   
     }
+     
     /* Estilo de la clase row */
     .row {
         margin-top: 20px;
@@ -105,7 +106,7 @@
     }
     /* Estilo del elemento sesion al pasar el mouse */
     #sesion:hover {
-        color: #5c4068; 
+        color: #879eea; 
     }
     /* Estilo del botón de búsqueda */
     #btnsearch {
@@ -179,11 +180,16 @@
                             <img src="img/heart.svg" alt="favoritos">
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item position-relative">
                         <a class="nav-link active" aria-current="page" href="carrito.html">
-                            <img src="img/shopping-cart.svg" alt="compras">
+                            <img src="img/shopping-cart.svg" alt="compras" style="width: 24px; height: 24px;">
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                99+
+                                <span class="visually-hidden">mensajes no leídos</span>
+                            </span>
                         </a>
                     </li>
+                    
                 </ul>
             </div>
         </div>
