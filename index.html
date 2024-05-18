@@ -114,6 +114,11 @@
         color: #000;
     }
 
+    .heart-icon {
+        width: 24px; /* Ajusta el tamaño del icono */
+        height: 24px; /* Ajusta el tamaño del icono */
+    }
+
     /* Estilo del pie de página */
     footer {
         position: relative; /*Establece la posición del pie de página en relación con su posición normal en el flujo del documento.*/
@@ -266,7 +271,10 @@
                 <div class="card-body">
                 <h5 class="card-title">Comida de perro Dog Chow 15kg</h5>
                 <p class="card-text">$30.000</p>
-                <button class="btn btn-agregar-carrito" onclick="agregarAlCarrito('DogChow')">Agregar al carrito</button>
+                <div class="d-flex justify-content-center align-items-center">
+                    <button class="btn btn-agregar-carrito me-3" onclick="agregarAlCarrito('DogChow')">Agregar al carrito</button>
+                    <img src="img/heart_fav.svg" alt="favorito" class="heart-icon ms-2">
+                </div>
                 </div>
                 <div class="card-footer">
                 <small class="text-body-secondary">Hace 5 minutos</small>
@@ -279,8 +287,12 @@
                 <div class="card-body">
                 <h5 class="card-title">Corral de gatos</h5>
                 <p class="card-text">$60.000</p>
-                <!-- Botón para agregar al carrito -->
-                <button class="btn btn-agregar-carrito" onclick="agregarAlCarrito('corralGatos')">Agregar al carrito</button>
+                <div>
+                    <!-- Botón para agregar al carrito -->
+                    <button class="btn btn-agregar-carrito me-3" onclick="agregarAlCarrito('corralGatos')">Agregar al carrito</button>
+                    <img src="img/heart_fav.svg" alt="favorito" class="heart-icon ms-2">
+                </div>
+                
                 </div>
                 <div class="card-footer">
                 <small class="text-body-secondary">Hace 10 minutos</small>
@@ -293,7 +305,11 @@
                 <div class="card-body">
                 <h5 class="card-title">Arenero para gatos</h5>
                 <p class="card-text">$8.000</p>
-                <button class="btn btn-agregar-carrito" onclick="agregarAlCarrito('AreneroGatos')">Agregar al carrito</button>
+                <div>
+                    <button class="btn btn-agregar-carrito me-3" onclick="agregarAlCarrito('AreneroGatos')">Agregar al carrito</button>
+                    <img src="img/heart_fav.svg" alt="favorito" class="heart-icon ms-2">
+
+                </div>
 
                 </div>
                 <div class="card-footer">
@@ -309,9 +325,12 @@
                     <div class="card-body">
                         <h5 class="card-title">Comida de perro Dog Chow 15kg</h5>
                         <p class="card-text">$30.000</p>
-                        <!-- Botón para agregar al carrito -->
-                    <button class="btn btn-agregar-carrito" onclick="agregarAlCarrito('DogChow')">Agregar al carrito</button>
+                        <div>
+                            <!-- Botón para agregar al carrito -->
+                            <button class="btn btn-agregar-carrito me-3" onclick="agregarAlCarrito('DogChow')">Agregar al carrito</button>
+                            <img src="img/heart_fav.svg" alt="favorito" class="heart-icon ms-2">
 
+                        </div>
                     </div>
                     <div class="card-footer">
                         <small class="text-body-secondary">Hace 5 minutos</small>
@@ -324,7 +343,10 @@
                 <div class="card-body">
                 <h5 class="card-title">Comida de perro Animal Planet 15kg</h5>
                 <p class="card-text">$49.000</p>
-                <button class="btn btn-agregar-carrito" onclick="agregarAlCarrito('AnimalPlanet')">Agregar al carrito</button>
+                <div>
+                    <button class="btn btn-agregar-carrito me-3" onclick="agregarAlCarrito('AnimalPlanet')">Agregar al carrito</button>
+                    <img src="img/heart_fav.svg" alt="favorito" class="heart-icon ms-2">
+                </div>
 
                 </div>
                 <div class="card-footer">
@@ -338,8 +360,10 @@
                 <div class="card-body">
                 <h5 class="card-title">Comida de perro Brit Care 15kg</h5>
                 <p class="card-text">$60.000</p>
-                <button class="btn btn-agregar-carrito" onclick="agregarAlCarrito('BritCare')">Agregar al carrito</button>
-
+                <div>
+                    <button class="btn btn-agregar-carrito me-3" onclick="agregarAlCarrito('BritCare')">Agregar al carrito</button>
+                    <img src="img/heart_fav.svg" alt="favorito" class="heart-icon ms-2">
+                </div>
                 </div>
                 <div class="card-footer">
                 <small class="text-body-secondary">Hace 2 minutos</small>
@@ -354,8 +378,10 @@
                 <div class="card-body">
                 <h5 class="card-title">Comida de gato Cat Chow 10kg</h5>
                 <p class="card-text">$39.000</p>
-                <button class="btn btn-agregar-carrito" onclick="agregarAlCarrito('CatChow')">Agregar al carrito</button>
-
+                <div>
+                    <button class="btn btn-agregar-carrito me-3" onclick="agregarAlCarrito('CatChow')">Agregar al carrito</button>
+                    <img src="img/heart_fav.svg" alt="favorito" class="heart-icon ms-2">
+                </div>
                 </div>
                 <div class="card-footer">
                 <small class="text-body-secondary">Hace 5 minutos</small>
@@ -368,7 +394,10 @@
                 <div class="card-body">
                 <h5 class="card-title">Correa de perro</h5>
                 <p class="card-text">$19.990</p>
-                <button class="btn btn-agregar-carrito" onclick="agregarAlCarrito('CorreaPerro')">Agregar al carrito</button>
+                <div>
+                    <button class="btn btn-agregar-carrito me-3" onclick="agregarAlCarrito('CorreaPerro')">Agregar al carrito</button>
+                    <img src="img/heart_fav.svg" alt="favorito" class="heart-icon ms-2">
+                </div>
                 </div>
                 <div class="card-footer">
                 <small class="text-body-secondary">Hace 1 minutos</small>
@@ -381,7 +410,10 @@
                 <div class="card-body">
                 <h5 class="card-title">Rascador de gatos</h5>
                 <p class="card-text">$46.000</p>
-                <button class="btn btn-agregar-carrito" onclick="agregarAlCarrito('RascadorGatos')">Agregar al carrito</button>
+                <div>
+                    <button class="btn btn-agregar-carrito me-3" onclick="agregarAlCarrito('RascadorGatos')">Agregar al carrito</button>
+                    <img src="img/heart_fav.svg" alt="favorito" class="heart-icon ms-2">
+                </div>
                 </div>
                 <div class="card-footer">
                 <small class="text-body-secondary">Hace 7 minutos</small>
