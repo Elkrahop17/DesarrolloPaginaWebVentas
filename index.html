@@ -81,6 +81,58 @@
         margin: auto;
         margin-top: 10px;
     }
+
+    /* Estilos para el modo oscuro */
+    body.dark-mode {
+        background-color: #121212;
+        color: #e0e0e0; /* Texto en color claro */
+    }
+
+    header.dark-mode {
+        background-color: #333; /* Fondo del header */
+        color: #e0e0e0; /* Texto en el header */
+    }
+
+    .navbar.dark-mode {
+        background-color: #444; /* Fondo de la navbar */
+    }
+
+    header.dark-mode a {
+        color: #e0e0e0; /* Enlaces en el header */
+    }
+
+    .navbar-dark-mode .nav-link {
+        color: #e0e0e0; /* Enlaces en la navbar */
+    }
+
+    .navbar-dark-mode .nav-link:hover {
+        color: #ffcc00; /* Enlaces al pasar el mouse en la navbar */
+    }
+
+    footer.dark-mode {
+        background-color: #333; /* Fondo del footer */
+        color: #e0e0e0; /* Texto en el footer */
+    }
+
+    .card.dark-mode {
+        background-color: #2a2a2a; /* Fondo de las tarjetas */
+        color: #e0e0e0; /* Texto en las tarjetas */
+    }
+
+    #moon-dark {
+        list-style: none;
+    }
+
+    /* Estilos para el texto de alternar modo */
+    #modeToggleText {
+        font-size: 14px;
+        font-weight: bold;
+        transition: color 0.3s ease;
+        color: #ffffff;
+    }
+    
+
+    
     /* Estilo del elemento navbarcategorias */
     #navbarcategorias {
         margin-top: 0;
@@ -192,6 +244,15 @@
                         <img src="img/search.svg" alt="buscar">
                     </button>
                 </form>
+
+                <li id="moon-dark" class="nav-item">
+                    <a id="darkModeToggle" class="nav-link active" href="javascript:void(0)">
+                        <img id="darkModeIcon" src="img/moon-solid.svg" alt="Modo Oscuro" style="width: 24px; height: 24px;">
+                        <span id="modeToggleText">Modo Oscuro</span>
+                    </a>
+                </li>
+                
+
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a id="sesion" class="nav-link active" aria-current="page" href="inicioDeSesion.html">Iniciar Sesión</a>
@@ -429,6 +490,30 @@
             Somos la Tienda de tus Incondicionales.
         </p>
     </footer>
+
+    <script>
+        document.getElementById('darkModeToggle').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            
+            document.querySelector('header').classList.toggle('dark-mode');
+            document.querySelector('.navbar').classList.toggle('dark-mode');
+            document.querySelector('footer').classList.toggle('dark-mode');
+            document.querySelectorAll('.card').forEach(function(card) {
+                card.classList.toggle('dark-mode');
+            });
+
+            // Cambiar el icono del modo oscuro al modo claro y viceversa
+            const darkModeIcon = document.getElementById('darkModeIcon');
+            if (darkModeIcon.getAttribute('src') === 'img/moon-solid.svg') {
+                darkModeIcon.setAttribute('src', 'img/sun-solid.svg'); // Cambiar a icono de sol
+                document.getElementById('modeToggleText').textContent = "Modo Claro"; // Cambiar texto
+            } else {
+                darkModeIcon.setAttribute('src', 'img/moon-solid.svg'); // Cambiar a icono de luna
+                document.getElementById('modeToggleText').textContent = "Modo Oscuro"; // Cambiar texto
+            }
+
+        });
+    </script>   
 
 <script src="js/agregarProductos.js"></script>    
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
