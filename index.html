@@ -299,7 +299,7 @@
     </nav>
 <!--Codigo para el carousel-->
     <section class="container mt-4">
-        <div id="carouselExampleIndicators" class="carousel slide">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -321,6 +321,7 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
+        
     </section>
 <!--Cards para poner los productos con sus respectivos precios-->
         <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -492,7 +493,6 @@
     <script>
         document.getElementById('darkModeToggle').addEventListener('click', function() {
             document.body.classList.toggle('dark-mode');
-            
             document.querySelector('header').classList.toggle('dark-mode');
             document.querySelector('.navbar').classList.toggle('dark-mode');
             document.querySelector('footer').classList.toggle('dark-mode');
@@ -512,7 +512,6 @@
 
         });
 
-        
         
     </script>   
 
