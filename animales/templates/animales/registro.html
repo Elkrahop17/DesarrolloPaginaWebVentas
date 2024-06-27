@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Registro</title>
+{% load static %}
+<link rel="stylesheet" href="{% static 'bootstrap-5.3.3-dist/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/style_registro.css' %}">
+
+</head>
+<body>
+<!--Alerta para registro-->    
+<div id="liveAlertPlaceholder"></div>
+
+<!--Contenedor para registro-->
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="form-container">
+                <h2>Crear una cuenta nueva</h2>
+                <form>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="text1" placeholder="Nombre">
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="text2" placeholder="Apellido">
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Correo@ejemplo.com">
+                        <div id="emailHelp" class="form-text">Nunca compartiremos su correo electrónico con nadie más.</div>
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Confirmar contraseña">
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Recordar contraseña</label>
+                    </div>
+                    
+                    <button type="submit"  id="liveAlertBtn" class="btn btn-primary">Registrarse</button>
+                    <div class="d-flex justify-content-center mt-3">
+                        <a href="{% url 'inicioDeSesion' %}" class="btn btn-secondary">Volver a iniciar sesión</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="{% static 'js/validar_registro.js' %}"></script>
+<script src="{% static 'bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>
