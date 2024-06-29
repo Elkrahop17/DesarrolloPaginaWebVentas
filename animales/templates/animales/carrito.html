@@ -49,6 +49,9 @@
 
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
+                        <a id="sesion" class="nav-link active" aria-current="page" href="{% url 'lista_productos' %}">Sesión Admin</a>
+                    </li>
+                    <li class="nav-item">
                         <a id="sesion" class="nav-link active" aria-current="page" href="{% url 'inicioDeSesion' %}">Iniciar Sesión</a>
                     </li>
                     <li class="nav-item">
@@ -147,14 +150,15 @@
                 <h5>Total: ${{ total }}</h5>
             </div>
         </div>
-    {% else %}
-        <div class="alert alert-info text-center" role="alert">
+        {% else %}
+        <div class="alert alert-info alert-info-empty text-center" role="alert">
             <h4 class="alert-heading">Tu carrito está vacío</h4>
             <p>¡Parece que aún no has agregado productos a tu carrito! Explora nuestros productos y añade tus favoritos.</p>
             <hr>
             <p class="mb-0">Visita nuestra <a href="{% url 'index' %}" class="alert-link">página de productos</a> para empezar a comprar.</p>
         </div>
-    {% endif %}
+        {% endif %}
+
 
     <div class="text-center mt-4">
         <a href="{% url 'inicioDeSesion' %}" class="btn btn-primary btn-custom mx-2">Iniciar sesión</a>

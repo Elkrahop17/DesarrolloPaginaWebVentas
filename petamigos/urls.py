@@ -23,7 +23,8 @@ from animales import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('animales/', include('animales.urls')),
-    path('', views.index)
+    path('', views.index),
+    path("accounts/", include('django.contrib.auth.urls')),
 ]
 
 if settings.DEBUG:

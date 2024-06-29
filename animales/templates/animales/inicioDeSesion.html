@@ -31,7 +31,9 @@
     
     <div class="center-container">
         <div class="card form-container">
-            <form id="formas_inicioSesion">
+            <form id="formas_inicioSesion" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
                 <div id="divlogo">
                     <a class="navbar-brand" href="{% url 'index' %}">Pet Amigos</a>
                 </div>
@@ -66,7 +68,7 @@
                     <label class="form-check-label" for="exampleCheck1"><b>Guardar contraseña</b></label>
                 </div>
                 
-                <button id="btn-ingresar" type="button" class="btn btn-cafe" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <button id="btn-ingresar" type="submit" class="btn btn-cafe" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Ingresar
                 </button>
 

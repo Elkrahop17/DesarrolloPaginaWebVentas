@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import AnimalProducto, ProductoPerros, ProductoGatos, Carrito
 from .forms import ProductoForm, ProductoPerrosForm, ProductoGatosForm
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 #vista del index
@@ -108,6 +109,19 @@ def productoGato(request):
     productos =  ProductoGatos.objects.all()
     return render(request, 'animales/productosGato.html', {'productos': productos})
 
+
+
+
+
+#autenticarse
+@login_required
+def autenticacion(request):
+
+    request.session["usuario"]= "DiegoJ1710"
+    usuario=request.session["usuario"]
+    context = {'usuario': usuario}
+    return render(request, 'animales/admin.html', context)
+
 #vista para listar productos desde el admin
 # Vista para listar todos los productos (AnimalProducto, ProductoPerros, ProductoGatos)
 def lista_productos(request):
@@ -155,7 +169,7 @@ def agregar_producto_gatos(request):
 
 
 
-#vista para eliminar los productos desde el admin
+#vista para editar los productos desde el admin
 def editar_producto(request, producto_id):
     producto = get_object_or_404(AnimalProducto, id=producto_id)
     if request.method == 'POST':
