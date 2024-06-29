@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import AnimalProducto, ProductoPerros, ProductoGatos, Carrito
+from .models import AnimalProducto, ProductoPerros, ProductoGatos, Carrito, Pedido, PedidoItem
 from .forms import ProductoForm, ProductoPerrosForm, ProductoGatosForm
 from django.contrib.auth.decorators import login_required
 # Create your views here.
@@ -230,3 +230,55 @@ def eliminar_producto_gatos(request, producto_id):
         producto.delete()
         return redirect('lista_productos')
     return render(request, 'animales/admin_eliminar_producto_gatos.html', {'producto': producto})
+
+
+#vista para proceder con la compra
+def comprar_carrito(request):
+    carrito_items = Carrito.objects.all()
+
+    if request.method == 'POST' and carrito_items.exists():
+        # Crear un nuevo pedido
+        nuevo_pedido = Pedido.objects.create(total=0)
+        total = 0
+
+        # Agregar los productos del carrito al pedido
+        for item in carrito_items:
+            precio_unitario = None
+            if item.producto:
+                precio_unitario = float(item.producto.precio)
+            elif item.producto_perros:
+                precio_unitario = float(item.producto_perros.precio)
+            elif item.producto_gatos:
+                precio_unitario = float(item.producto_gatos.precio)
+
+            PedidoItem.objects.create(
+                pedido=nuevo_pedido,
+                producto=item.producto,
+                producto_perros=item.producto_perros,
+                producto_gatos=item.producto_gatos,
+                cantidad=item.cantidad,
+                precio_unitario=precio_unitario
+            )
+            total += precio_unitario * item.cantidad
+
+        nuevo_pedido.total = total
+        nuevo_pedido.save()
+
+        # Vaciar el carrito
+        carrito_items.delete()
+
+        return redirect('confirmacion_compra', pedido_id=nuevo_pedido.id)
+    
+    return redirect('ver_carrito')
+
+def confirmacion_compra(request, pedido_id):
+    pedido = Pedido.objects.get(id=pedido_id)
+    for item in pedido.items.all():
+        if item.producto:
+            item.subtotal = item.cantidad * item.producto.precio
+        elif item.producto_perros:
+            item.subtotal = item.cantidad * item.producto_perros.precio
+        elif item.producto_gatos:
+            item.subtotal = item.cantidad * item.producto_gatos.precio
+
+    return render(request, 'animales/confirmacion_compra.html', {'pedido': pedido})

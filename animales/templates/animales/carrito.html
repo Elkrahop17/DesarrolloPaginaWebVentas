@@ -145,11 +145,17 @@
             {% endfor %}
         </div>
 
+        <!-- Total y botón Comprar -->
         <div class="row mt-4">
             <div class="col text-end">
                 <h5>Total: ${{ total }}</h5>
+                <form method="post" action="{% url 'comprar_carrito' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-success btn-lg mt-3">Comprar</button>
+                </form>
             </div>
         </div>
+
         {% else %}
         <div class="alert alert-info alert-info-empty text-center" role="alert">
             <h4 class="alert-heading">Tu carrito está vacío</h4>
