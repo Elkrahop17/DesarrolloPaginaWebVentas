@@ -52,9 +52,8 @@
                     </tbody>
                 </table>
                 <div class="text-end">
-                    <h4>Total: ${{ pedido.total }}</h4>
+                    <h4>Total: ${{ pedido.total|floatformat:3 }}</h4>
                 </div>
             </div>
             <div class="card-footer text-center">
                 <a href="{% url 'index' %}" class="btn btn-primary">Volver a la tienda</a>
-     
