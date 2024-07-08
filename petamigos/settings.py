@@ -56,7 +56,7 @@ ROOT_URLCONF = 'petamigos.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / "templates",],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -68,7 +68,8 @@ TEMPLATES = [
         },
     },
 ]
-LOGIN_REDIRECT_URL = "admin"
+
+
 
 WSGI_APPLICATION = 'petamigos.wsgi.application'
 

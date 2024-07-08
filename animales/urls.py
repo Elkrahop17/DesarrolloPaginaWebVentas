@@ -6,10 +6,8 @@ from . import views
 urlpatterns = [
     path('index/', views.index, name='index'),
     path('favoritos/', views.favoritos, name='favoritos'),
-    path('inicioDeSesion/', views.inicioDeSesion, name='inicioDeSesion'),
     path('ayuda/', views.ayuda, name='ayuda'),
     path('informacion/', views.informacion, name='informacion'),
-    path('registro/', views.registro, name='registro'),
     path('QuienesSomos/', views.QuienesSomos, name='QuienesSomos'),
     path('productosPerro/', views.productoPerro, name='productosPerro'),
     path('productosGatos/', views.productoGato, name='productosGato'),
@@ -20,8 +18,10 @@ urlpatterns = [
     path('agregar_al_carrito_gato/<int:producto_id>/', views.agregar_al_carrito_gato, name='agregar_al_carrito_gato'),
     path('eliminar_del_carrito/<int:item_id>/', views.eliminar_del_carrito, name='eliminar_del_carrito'),
     
-    path('autenticacion/', views.autenticacion, name='autenticacion'),
-    
+    #auntenticarse 
+    path("inicioDeSesion/", views.acceder, name="inicioDeSesion"),
+    path("salir/", views.salir, name="salir"),
+    path('registro/', views.signup, name='registro'),
     #admin productos generales
     path('admin/productos/', views.lista_productos, name='lista_productos'),
     path('admin/productos/agregar/', views.agregar_producto, name='agregar_producto'),

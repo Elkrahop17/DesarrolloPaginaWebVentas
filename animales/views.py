@@ -1,7 +1,12 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import AnimalProducto, ProductoPerros, ProductoGatos, Carrito, Pedido, PedidoItem
 from .forms import ProductoForm, ProductoPerrosForm, ProductoGatosForm
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
+from django.contrib.auth.models import User 
+from django.http import HttpResponse
+
 # Create your views here.
 
 #vista del index
@@ -74,10 +79,6 @@ def eliminar_del_carrito(request, item_id):
         item.delete()
         return redirect('ver_carrito') 
 
-#vista de la pag inicio de sesión
-def inicioDeSesion(request):
-    context={}
-    return render(request, 'animales/inicioDeSesion.html', context)
 
 #vista de la pag ayuda
 def ayuda(request):
@@ -89,10 +90,6 @@ def informacion(request):
     context= {}
     return render(request, 'animales/informacion.html', context)
 
-#vista de la pag registro
-def registro(request):
-    context= {}
-    return render(request, 'animales/registro.html', context)
 
 #vista de la pag quienes somos
 def QuienesSomos(request):
@@ -114,13 +111,41 @@ def productoGato(request):
 
 
 #autenticarse
-@login_required
-def autenticacion(request):
+def acceder(request):
+    if request.method == 'GET':
+        return render(request, 'animales/inicioDeSesion.html', {'form': AuthenticationForm})
+    else:
+        user = authenticate(request, username=request.POST['username'], password=request.POST['password'])
+        
+        if user is None:
+            return render(request, 'animales/inicioDeSesion.html', {'form': AuthenticationForm, 'error': 'Usuario o contraseña es incorrecta'})
+        else:
+            login(request, user)
+            return redirect('lista_productos')
+        
+        
+#registrarse
 
-    request.session["usuario"]= "DiegoJ1710"
-    usuario=request.session["usuario"]
-    context = {'usuario': usuario}
-    return render(request, 'animales/admin.html', context)
+def signup(request):
+    if request.method == 'GET':
+        return render(request, 'animales/registro.html', {'form': UserCreationForm})
+    else:
+        if request.POST['password1'] == request.POST['password2']:
+            try:
+                user = User.objects.create_user(username=request.POST['username'], password=request.POST['password1'])
+                user.save()
+                login(request, user)
+                return redirect('index')
+            except:
+                return render(request, 'animales/registro.html', {'form': UserCreationForm, 'error': 'Usuario ya existe'})
+        return render(request, 'animales/registro.html', {'form': UserCreationForm, 'error': 'Contraseñas no coinciden'})
+            
+
+#cerrar sesion
+def salir(request):
+    logout(request)
+    messages.success(request, F"Tu sesión se ha cerrado correctamente")
+    return redirect("inicioDeSesion")
 
 #vista para listar productos desde el admin
 # Vista para listar todos los productos (AnimalProducto, ProductoPerros, ProductoGatos)

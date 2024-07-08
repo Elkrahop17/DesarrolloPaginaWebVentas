@@ -16,6 +16,10 @@
     <a href="{% url 'agregar_producto' %}" class="btn btn-primary mb-3">Agregar Producto General</a>
     <a href="{% url 'agregar_producto_perros' %}" class="btn btn-primary mb-3">Agregar Producto para Perros</a>
     <a href="{% url 'agregar_producto_gatos' %}" class="btn btn-primary mb-3">Agregar Producto para Gatos</a>
+
+    <div class="text-end">
+        <a href="{% url 'salir' %}" class="btn btn-danger">Cerrar Sesión</a>
+    </div>
     
     <div class="product-list">
         <h3>Productos Generales</h3>
@@ -61,6 +65,8 @@
         </div>
         {% endfor %}
     </div>
+
+    
 
 </div>
 

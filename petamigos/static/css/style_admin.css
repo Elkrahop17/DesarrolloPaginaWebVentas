@@ -25,3 +25,8 @@ body {
     top: 10px;
     left: 10px;
 }
+
+.text-end {
+    text-align: end;
+    margin-bottom: 20px; /* Ajusta el margen inferior según sea necesario */
+}

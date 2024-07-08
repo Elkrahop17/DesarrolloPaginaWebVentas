@@ -42,3 +42,5 @@ class ProductoGatosForm(forms.ModelForm):
             'imagen': forms.ClearableFileInput(attrs={'class': 'form-control'}),
             'minutos': forms.NumberInput(attrs={'class': 'form-control'}),
         }
+        
+        
